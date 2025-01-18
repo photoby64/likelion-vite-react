@@ -7,7 +7,13 @@
     "module": "ESNext",
     "skipLibCheck": true,
 
-    /* 번들러 모드 */
+
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
+
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
@@ -15,12 +21,16 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
-    /* 린팅 */
+
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
+    
   },
-  "include": ["src"]
+
+  "include": ["src"],
+  "exclude": ["vite.config.ts"]
+
 }

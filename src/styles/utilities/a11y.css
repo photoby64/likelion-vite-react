@@ -1,0 +1,40 @@
+/* 
+.sr-only 클래스는 화면 리더기 전용 스타일을 적용하는 유틸리티 클래스입니다.
+이 클래스는 시각적으로 요소를 숨기지만, 보조 기술(예: 스크린 리더)에서 읽을 수 있도록 만듭니다.
+*/
+
+/* 기본 sr-only 스타일 */
+.sr-only {
+  overflow: hidden; /* 요소 내부 콘텐츠를 숨김 */
+  position: absolute; /* 요소를 문서 흐름에서 제거 */
+  clip: rect(1px, 1px, 1px, 1px); /* 요소를 시각적으로 잘라냄 (1px 영역으로 제한) */
+  clip-path: circle(0); /* 요소를 클리핑하여 완전히 숨김 */
+  width: 1px; /* 요소의 너비를 1px로 설정 */
+  height: 1px; /* 요소의 높이를 1px로 설정 */
+  margin: -1px; /* 요소를 화면에서 보이지 않도록 음수 마진 설정 */
+  white-space: nowrap; /* 텍스트 줄바꿈 방지 (스크린 리더가 한 번에 읽을 수 있도록) */
+
+  /* 
+  caption&: caption 요소에 sr-only 클래스가 적용된 경우,
+  시각적으로 숨기지 않고 문서 흐름에 따라 보이도록 처리.
+  */
+  caption& {
+    position: static; /* 기본 문서 흐름에서의 위치로 되돌림 */
+  }
+
+  /* 
+  .focusable:focus: 
+  focusable 클래스가 추가된 sr-only 요소가 포커스를 받았을 때,
+  숨겨진 스타일을 해제하여 다시 보이도록 설정.
+  */
+  &.focusable:focus {
+    overflow: initial; /* 콘텐츠 숨김을 해제 */
+    position: static; /* 문서 흐름 내 기본 위치로 복원 */
+    clip: auto; /* 클리핑 해제 */
+    clip-path: unset; /* 클립 패스를 초기화 */
+    width: initial; /* 너비를 기본값으로 복원 */
+    height: initial; /* 높이를 기본값으로 복원 */
+    margin: initial; /* 마진을 기본값으로 복원 */
+    white-space: initial; /* 텍스트 줄바꿈을 기본값으로 복원 */
+  }
+}

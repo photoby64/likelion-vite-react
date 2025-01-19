@@ -3,7 +3,7 @@
 React 학습 시작을 위한 사용자 정의 템플릿
 
 ```sh
-degit yamoo9/likelion-vite-react <폴더_이름>
+degit (경로)/likelion-vite-react <폴더_이름>
 cd <폴더_이름>
 pnpm install
 ```
@@ -39,6 +39,16 @@ pnpm lint
 ```sh
 pnpm format
 ```
+
+## Git 관련 명령어
+
+Git 훅(hook), pre-commit 훅을 건너뛰도록 설정
+
+```sh
+git commit -m "Your commit message" --no-verify
+```
+
+## JSON 유효성 검사
 
 JSONLint
 

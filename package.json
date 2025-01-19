@@ -16,7 +16,8 @@
     "preview": "vite preview",
     "lint": "eslint --cache 'src/**/*.{ts,tsx}'",
     "format": "prettier --write --cache 'src/**/*.{ts,tsx}'",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "echo \"No tests specified\" && exit 0"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [

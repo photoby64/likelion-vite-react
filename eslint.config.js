@@ -48,10 +48,27 @@ export default tseslint.config(
       ...reactHooks.configs.recommended.rules,
       '@typescript-eslint/no-unsafe-assignment': 'off',
       '@typescript-eslint/no-unsafe-call': 'off',
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     },
+  },
+  {
+    overrides: [
+      {
+        files: ['**/*.ts', '**/*.tsx'],
+        excludedFiles: '*.test.ts',
+        rules: {
+          '@typescript-eslint/no-unused-vars': [
+            'error',
+            {
+              vars: 'all',
+              varsIgnorePattern: '^_|^//',
+              argsIgnorePattern: '^_',
+              ignoreRestSiblings: true,
+              caughtErrorsIgnorePattern: '^_',
+            },
+          ],
+        },
+      },
+    ],
   }
 );
